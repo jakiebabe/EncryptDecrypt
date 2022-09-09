@@ -17,6 +17,15 @@ namespace EncryptDecrypt
         {
             try
             {
+                if (txtValue.Text == null || txtValue.Text == "")
+                {
+                    btnClip.Enabled = false;
+                    return ("No text detected. Try adding some.");
+                }
+                else
+                {
+                    btnClip.Enabled = true;
+                }
                 var encrypt = new AesController();
                 encryptText = encrypt.EncryptString(txtValue.Text.Trim());
             }
@@ -31,6 +40,15 @@ namespace EncryptDecrypt
         {
             try
             {
+                if (txtValue.Text == null || txtValue.Text == "")
+                {
+                    btnClip.Enabled = false;
+                    return ("No text detected. Try adding some.");
+                }
+                else
+                {
+                    btnClip.Enabled = true;
+                }
                 var decrypt = new AesController();
                 decryptText = decrypt.DecryptString(txtValue.Text.Trim());
             }
