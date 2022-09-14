@@ -5,11 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
+using log4net;
 
 namespace EncryptDecrypt.Controller
 {
     public class AesController
     {
+        private static readonly ILog log =
+        LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public string EncryptString(string text)
         {
             string key = "Xc4u7x!A%D*G-KaPlSr56tp2s5v8y/B?";
@@ -70,9 +74,9 @@ namespace EncryptDecrypt.Controller
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                
+                log.Error("Error decrypting text. " + ex.ToString());
                 return ("An error has encountered while decrypting.");
             }
             return (decryptedText);
