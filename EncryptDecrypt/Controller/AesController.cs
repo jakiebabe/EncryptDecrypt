@@ -45,6 +45,7 @@ namespace EncryptDecrypt.Controller
                 return("An error has encountered while encrypting.");
             }
             string encryptedString = Convert.ToBase64String(array);
+            log.Info(text + ": " + encryptedString);
             return (encryptedString);
         }
 
